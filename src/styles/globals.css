@@ -1,4 +1,11 @@
-/* 1. Reset básico (opcional) */
+/* src/styles/globals.css */
+
+/* 1. Importa todo o Tailwind (base + components + utilities) */
+@import "tailwindcss";
+
+/* 2. Se você tiver resets/customizações, coloque-os abaixo */
+
+/* Reset básico */
 *,
 *::before,
 *::after {
@@ -6,19 +13,3 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-/* 2. Importa os estilos base do Tailwind */
-@tailwind base;
-
-/* 3. Importa componentes do Tailwind */
-@tailwind components;
-
-/* 4. Suas customizações globais, se quiser */
-/* por exemplo, setar font-family padrão */
-html {
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-}
-
-/* 5. Importa utilitários do Tailwind */
-@tailwind utilities;

@@ -12,7 +12,9 @@ export default function AuthContainer({ children }: Props) {
   const router = useRouter();
 
   useEffect(() => {
-    const openRoutes = ['/login'];
+    // agora liberamos "/" e "/login"
+    const openRoutes = ['/', '/login'];
+
     if (!isAuthenticated() && !openRoutes.includes(router.pathname)) {
       router.replace('/login');
     }
