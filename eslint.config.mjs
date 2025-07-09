@@ -1,4 +1,3 @@
-// .eslintrc.mjs
 const eslintConfig = {
   root: true,
   env: {
@@ -41,25 +40,21 @@ const eslintConfig = {
     // Prettier como erro
     'prettier/prettier': ['error'],
 
-    // Import: não permitir default export anônima
-    // (mas já resolvido ao usar variável nomeada)
+    // não permitir import default export anônima
     'import/no-anonymous-default-export': ['error'],
 
-    // Desliga a exigência de importar React em cada arquivo JSX (Next já faz o auto-import)
+    // não precisa importar 'React' em cada arquivo
     'react/react-in-jsx-scope': 'off',
 
-    // Hooks
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
 
-    // TypeScript
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
 
-    // Acessibilidade: permitir alguns casos específicos
+    // Acessibilidade
     'jsx-a11y/anchor-is-valid': 'off',
 
-    // Exemplos de customizações
     'no-console': ['warn', { allow: ['warn', 'error'] }],
     'no-debugger': 'error',
   },
@@ -67,7 +62,7 @@ const eslintConfig = {
     {
       files: ['*.ts', '*.tsx'],
       rules: {
-
+        // caso tivesse regras específicas de lint, colocaria aqui
       },
     },
   ],
