@@ -16,9 +16,9 @@ export default function ProductCard({ id, name, price, image }: Props) {
       <img
         src={image}
         alt={name}
-        className="h-40 w-full object-cover mb-2 rounded"
+        className="h-40 w-full object-cover mb-2 rounded-lg"
       />
-      <h3 className="font-semibold">{name}</h3>
+      <h3 className="font-semibold text-xs">{name}</h3>
       <p>R$ {price.toFixed(2)}</p>
     </Link>
   );
