@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie';
 
 export function login() {
-  Cookies.set('auth', 'true', { expires: 1 });
+  Cookies.set('auth', 'true', { expires: 1 }); // deixei com tempo de expiração de 1 dia
 }
 
 export function logout() {
