@@ -1,24 +1,22 @@
-'use client'
+'use client';
 
-import { useEffect } from 'react'
-import { useRouter, usePathname } from 'next/navigation'
-import { isAuthenticated } from '../hooks/useAuth'
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { isAuthenticated } from '@/hooks/useAuth';
 
-
-interface AuthContainerProps {
-  children: React.ReactNode
+interface Props {
+  children: React.ReactNode;
 }
 
-export default function AuthContainer({ children }: AuthContainerProps) {
-  const router = useRouter()
-  const pathname = usePathname()
+export default function AuthContainer({ children }: Props) {
+  const router = useRouter();
 
   useEffect(() => {
-    const openRoutes = ['/login']
-    if (!isAuthenticated() && !openRoutes.includes(pathname)) {
-      router.replace('/login')
+    const openRoutes = ['/login'];
+    if (!isAuthenticated() && !openRoutes.includes(router.pathname)) {
+      router.replace('/login');
     }
-  }, [pathname, router])
+  }, [router]);
 
-  return <>{children}</>
+  return <>{children}</>;
 }
