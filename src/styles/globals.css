@@ -1,15 +1,6 @@
-/* src/styles/globals.css */
-
-/* 1. Importa todo o Tailwind (base + components + utilities) */
 @import "tailwindcss";
 
-/* 2. Se você tiver resets/customizações, coloque-os abaixo */
 
-/* Reset básico */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+html {
+  transition: background-color 0.3s, color 0.3s;
 }

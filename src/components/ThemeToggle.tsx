@@ -1,19 +1,19 @@
 'use client';
 
-import { useTheme } from "@/hooks/useTheme";
-
-
+import { useTheme } from '@/hooks/useTheme';
 
 export default function ThemeToggle() {
-  const { dark, toggle } = useTheme();
+  const { theme, toggle } = useTheme();
 
   return (
     <button
       onClick={toggle}
-      aria-label="Toggle dark mode"
-      className="p-2 rounded border hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+      aria-label="Alternar Tema"
+      className="px-3 py-1 border rounded transition
+                 bg-white text-black
+                 dark:bg-gray-800 dark:text-white"
     >
-      {dark ? '☀️ Light' : '🌙 Dark'}
+      {theme === 'dark' ? '☀️ Light' : '🌙 Dark'}
     </button>
   );
 }
