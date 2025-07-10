@@ -1,36 +1,30 @@
-'use client';
-
-import { useState, useEffect } from 'react';
-
-type Theme = 'light' | 'dark';
+// 2. src/hooks/useTheme.ts
+import { useEffect, useState } from 'react';
 
 export function useTheme() {
-  const [theme, setTheme] = useState<Theme>('light');
+  const [isDark, setIsDark] = useState(false);
 
-  // Ao montar: lê do localStorage (ou usa preferência de sistema)
   useEffect(() => {
-    const stored = localStorage.getItem('theme') as Theme | null;
-    const initial: Theme =
-      stored === 'light' || stored === 'dark'
-        ? stored
-        : window.matchMedia('(prefers-color-scheme: dark)').matches
-          ? 'dark'
-          : 'light';
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    setTheme(initial);
-    // aplica a classe no html
-    document.documentElement.classList.toggle('dark', initial === 'dark');
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.classList.add('dark');
+      setIsDark(true);
+    } else {
+      document.documentElement.classList.remove('dark');
+      setIsDark(false);
+    }
   }, []);
 
-  // Toggle: inverte, grava e aplica
-  function toggle() {
-    setTheme(prev => {
-      const next: Theme = prev === 'dark' ? 'light' : 'dark';
-      localStorage.setItem('theme', next);
-      document.documentElement.classList.toggle('dark', next === 'dark');
-      return next;
+  const toggleTheme = () => {
+    setIsDark((prev) => {
+      const newTheme = !prev;
+      localStorage.setItem('theme', newTheme ? 'dark' : 'light');
+      document.documentElement.classList.toggle('dark', newTheme);
+      return newTheme;
     });
-  }
+  };
 
-  return { theme, toggle };
+  return { isDark, toggleTheme };
 }

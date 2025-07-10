@@ -3,86 +3,53 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { login } from '@/hooks/useAuth';
+import logo from '../../public/logo.png'
+import { Button } from '@/components/ui/Button';
+import Image from 'next/image';
+import { Typography } from '@/components/ui/Typography';
+import { InputField } from '@/components/ui/InputField';
 
 export default function LoginPage() {
-
   const router = useRouter();
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     login();
-    router.push('/products'); // ou '/produtos' conforme sua rota
+    router.push('/products');
   }
 
   return (
-    <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-white">
-        <body class="h-full">
-        ```
-      */}
-      <div className="flex min-h-screen flex-1 flex-col justify-center items-center px-6 py-12 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <img
+    <div className="flex min-h-screen flex-1 flex-col justify-center items-center px-6 py-12 lg:px-8">
+      <div className="w-full sm:mx-auto sm:w-full sm:max-w-sm">
+        <div className="relative mx-auto h-26 w-auto">
+          <Image
+            src={logo.src}
             alt="Your Company"
-            src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-            className="mx-auto h-10 w-auto"
+            fill
+            className="object-contain"
+            priority
           />
-          <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
-            Sign in to your account
-          </h2>
         </div>
 
-        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form action="#" method="POST" className="space-y-6">
-            <div>
-              <label htmlFor="email" className="block text-sm/6 font-medium text-gray-900">
-                Nome do usuário
-              </label>
-              <div className="mt-2">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  autoComplete="email"
-                  className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                />
-              </div>
-            </div>
-
-            <div>
-              <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm/6 font-medium text-gray-900">
-                  Senha
-                </label>
-              </div>
-              <div className="mt-2">
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  required
-                  autoComplete="current-password"
-                  className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                />
-              </div>
-            </div>
-
-            <div>
-              <button
-                onClick={handleSubmit}
-                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Sign in
-              </button>
-            </div>
-          </form>
-        </div>
+        <Typography
+          as="h2"
+          variant="h2"
+          className="mt-8 text-center text-2xl/9 font-bold tracking-tight text-gray-900"
+        >
+          Login
+        </Typography>
       </div>
-    </>
+
+      <div className="mt-10 w-4/5 sm:mx-auto sm:w-full sm:max-w-sm">
+        <form action="#" method="POST" className="space-y-6">
+          <InputField id="username" name="username" type="text" required label="Nome do usuário" />
+          <InputField id="password" name="password" type="password" required label="Senha" />
+          <Button onClick={handleSubmit} type="submit" variant="primary" size="lg" className='w-full'>
+            Entrar
+          </Button>
+        </form>
+      </div>
+    </div>
+
   );
 }
