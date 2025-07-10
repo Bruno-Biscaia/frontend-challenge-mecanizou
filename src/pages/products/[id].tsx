@@ -5,8 +5,8 @@ import path from 'path';
 import Image from 'next/image';
 import { ArrowLeftCircleIcon, CheckIcon } from '@heroicons/react/24/outline';
 import { Product } from '@/models/product';
-import { RatingStars } from '@/components/RatingStars';
-import { Typography } from '@/components/ui/Typography';
+import { RatingStars } from '@/components/Molecules/RatingStars';
+import { Typography } from '@/components/Atoms/Typography';
 
 interface Props {
   product: Product;

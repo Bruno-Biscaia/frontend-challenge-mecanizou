@@ -3,8 +3,8 @@ import { useProducts } from '@/hooks/useProducts';
 import { paginate } from '@/utils/pagination';
 import { useRouter } from 'next/router';
 import { isAuthenticated } from '@/hooks/useAuth';
-import { ProductCard } from '@/components/ProductCard';
-import { Pagination } from '@/components/Pagination';
+import { ProductCard } from '@/components/Molecules/ProductCard';
+import { Pagination } from '@/components/Molecules/Pagination';
 
 export default function ProductsPage() {
   const [page, setPage] = useState(1);

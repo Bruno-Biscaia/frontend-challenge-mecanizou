@@ -4,9 +4,9 @@ import { Dialog, DialogPanel } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Typography } from '@/components/ui/Typography';
-import { ThemeToggle } from '@/components/ThemeToggle';
-import logo from '../../../public/logo.png';
+import { Typography } from '@/components/Atoms/Typography';
+import { ThemeToggle } from '@/components/Molecules/ThemeToggle';
+
 
 interface Props {
   open: boolean;
@@ -24,7 +24,7 @@ export function MobileNav({ open, onClose, navigation, logged, onLogout }: Props
         <div className="flex items-center justify-between">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Zone Fashion</span>
-            <Image src={logo} alt="Zone Fashion" width={120} height={40} className="h-10 w-auto" />
+            <Image src="/logo.png" alt="Zone Fashion" width={120} height={40} className="h-10 w-auto" />
           </Link>
           <button onClick={onClose} className="-m-2.5 rounded-md p-2.5 text-gray-700">
             <span className="sr-only">Close menu</span>

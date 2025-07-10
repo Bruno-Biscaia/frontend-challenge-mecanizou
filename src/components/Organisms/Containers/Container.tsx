@@ -6,7 +6,6 @@ import { isAuthenticated, logout } from '@/hooks/useAuth'
 import { Bars3Icon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Image from 'next/image'
-import logo from '../../public/logo.png'
 import { DesktopNav } from './components/DesktopNav'
 import { MobileNav } from './components/MobileNav'
 
@@ -61,7 +60,7 @@ export default function Container({ children }: Props) {
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Zone Fashion</span>
               <Image
-                src={logo}
+                src="/logo.png"
                 alt="Zone Fashion"
                 width={120}
                 height={40}

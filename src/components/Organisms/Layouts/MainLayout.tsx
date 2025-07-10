@@ -3,8 +3,8 @@
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import Container from '@/containers/Container';
-import { ThemeToggle } from '@/components/ThemeToggle';
+import Container from '@/components/Organisms/Containers/Container';
+import { ThemeToggle } from '@/components/Molecules/ThemeToggle';
 
 interface Props {
   children: React.ReactNode;

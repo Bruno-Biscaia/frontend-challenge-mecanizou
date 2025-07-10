@@ -3,11 +3,10 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { login } from '@/hooks/useAuth';
-import logo from '../../public/logo.png'
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/Atoms/Button';
 import Image from 'next/image';
-import { Typography } from '@/components/ui/Typography';
-import { InputField } from '@/components/ui/InputField';
+import { Typography } from '@/components/Atoms/Typography';
+import { InputField } from '@/components/Atoms/InputField';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -23,7 +22,7 @@ export default function LoginPage() {
       <div className="w-full sm:mx-auto sm:w-full sm:max-w-sm">
         <div className="relative mx-auto h-26 w-auto">
           <Image
-            src={logo.src}
+            src="/logo.png"
             alt="Your Company"
             fill
             className="object-contain"
