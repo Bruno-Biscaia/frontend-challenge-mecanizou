@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`<Button /> corresponde ao snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="inline-flex cursor-pointer items-center justify-center rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-500 px-4 py-2 text-base"
+    disabled=""
+  >
+    Bloqueado
+  </button>
+</DocumentFragment>
+`;

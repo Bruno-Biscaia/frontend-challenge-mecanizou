@@ -6,7 +6,12 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "e2e": "playwright test",
+    "e2e:headed": "playwright test --headed"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.4",
@@ -18,7 +23,11 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@playwright/test": "^1.54.0",
     "@tailwindcss/postcss": "^4.1.11",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@types/jest": "^30.0.0",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -26,7 +35,12 @@
     "autoprefixer": "^10.4.21",
     "eslint": "^9",
     "eslint-config-next": "15.3.5",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^30.0.4",
+    "jest-environment-jsdom": "^30.0.4",
     "tailwindcss": "^4.1.11",
+    "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }

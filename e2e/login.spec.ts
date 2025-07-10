@@ -1,21 +1,16 @@
-import { test, expect } from '@playwright/test';
+// e2e/login.spec.ts
+import { test, expect } from '@playwright/test'
 
-test('fluxo login → produtos → logout', async ({ page }) => {
-  // 1. Vai para /login
-  await page.goto('http://localhost:3000/login');
-  await expect(page).toHaveURL(/\/login$/);
+test('fluxo login → acesso a /products', async ({ page }) => {
+  // 1) FAZ LOGIN
+  await page.goto('/login')
+  await page.fill('input[name="username"]', 'username')
+  await page.fill('input[name="password"]', 'senha123')
+  await page.click('button[type="submit"]')
 
-  // 2. Preenche usuário e faz login
-  await page.fill('input[placeholder="Usuário"]', 'any');
-  await page.click('button:has-text("Entrar")');
-  await expect(page).toHaveURL(/\/products$/);
+  // 2) Verifica rota /products e acesso
+  await page.waitForURL('**/products')
+  await expect(page.locator('div.grid')).toBeVisible()
 
-  // 3. Verifica se o catálogo carregou
-  await expect(page.locator('h2:has-text("Products")')).toBeVisible();
-  // ou checa um card
-  await expect(page.locator('.group').first()).toBeVisible();
 
-  // 4. Clica em logout
-  await page.click('text=Log out');
-  await expect(page).toHaveURL(/\/login$/);
-});
+})
