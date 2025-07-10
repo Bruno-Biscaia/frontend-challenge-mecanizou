@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Product } from '@/models/product';
-import { Typography } from '@/components/ui/Typography';
+import { Typography } from '@/components/Atoms/Typography';
 
 interface Props {
   product: Product;

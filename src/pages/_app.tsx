@@ -4,7 +4,7 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import MainLayout from '@/layouts/MainLayout';
+import MainLayout from '@/components/Organisms/Layouts/MainLayout';
 import { ReactElement, ReactNode } from 'react';
 
 type NextPageWithLayout = AppProps['Component'] & {

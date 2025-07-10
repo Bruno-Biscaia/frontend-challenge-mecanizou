@@ -1,8 +1,8 @@
 // components/layout/DesktopNav.tsx
 
 import Link from 'next/link';
-import { Typography } from '@/components/ui/Typography';
-import { ThemeToggle } from '@/components/ThemeToggle';
+import { Typography } from '@/components/Atoms/Typography';
+import { ThemeToggle } from '@/components/Molecules/ThemeToggle';
 
 interface Props {
   navigation: { name: string; href: string }[];

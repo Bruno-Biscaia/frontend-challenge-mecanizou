@@ -1,10 +1,10 @@
 
 
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/Atoms/Button';
 import '../styles/globals.css';
 import Link from 'next/link';
-import { ImageGallery } from '@/components/ImageGallery';
-import { Typography } from '@/components/ui/Typography';
+import { ImageGallery } from '@/components/Molecules/ImageGallery';
+import { Typography } from '@/components/Atoms/Typography';
 
 export default function HomePage() {
   return (
