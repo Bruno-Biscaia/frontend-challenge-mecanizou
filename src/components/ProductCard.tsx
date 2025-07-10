@@ -1,25 +1,33 @@
+// src/components/ProductCard.tsx
+import Image from 'next/image';
 import Link from 'next/link';
+import { Product } from '@/models/product';
+import { Typography } from '@/components/ui/Typography';
 
-type Props = {
-  id: string;
-  name: string;
-  price: number;
-  image: string;
-};
+interface Props {
+  product: Product;
+}
 
-export default function ProductCard({ id, name, price, image }: Props) {
+export function ProductCard({ product }: Props) {
   return (
-    <Link
-      href={`/products/${id}`}
-      className="block border rounded hover:shadow p-4"
-    >
-      <img
-        src={image}
-        alt={name}
-        className="h-40 w-full object-cover mb-2 rounded-lg"
-      />
-      <h3 className="font-semibold text-xs">{name}</h3>
-      <p>R$ {price.toFixed(2)}</p>
+    <Link href={`/products/${product.id}`} className="group">
+      <div>
+        <Image
+          alt={product.subTitle}
+          src={product.image}
+          width={500}
+          height={500}
+          className="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8"
+        />
+
+        <Typography as="h3" className="mt-4 text-sm text-gray-700">
+          {product.name}
+        </Typography>
+
+        <Typography as="p" className="mt-1 text-lg font-medium text-gray-900">
+          R$ {product.price.toFixed(2)}
+        </Typography>
+      </div>
     </Link>
   );
 }

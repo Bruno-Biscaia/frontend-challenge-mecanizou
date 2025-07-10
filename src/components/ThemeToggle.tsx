@@ -1,19 +1,23 @@
-'use client';
-
+// src/components/ThemeToggle.tsx
 import { useTheme } from '@/hooks/useTheme';
+import { MoonIcon, SunIcon } from '@heroicons/react/24/outline';
 
-export default function ThemeToggle() {
-  const { theme, toggle } = useTheme();
+
+export function ThemeToggle() {
+  const { isDark, toggleTheme } = useTheme();
 
   return (
     <button
-      onClick={toggle}
-      aria-label="Alternar Tema"
-      className="px-3 py-1 border rounded transition
-                 bg-white text-black
-                 dark:bg-gray-800 dark:text-white"
+      onClick={toggleTheme}
+      className="p-2 rounded-md border border-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+      aria-label="Alternar tema"
+      title="Alternar tema"
     >
-      {theme === 'dark' ? '☀️ Light' : '🌙 Dark'}
+      {isDark ? (
+        <SunIcon className="h-6 w-6 text-yellow-400" />
+      ) : (
+        <MoonIcon className="h-6 w-6 text-gray-700" />
+      )}
     </button>
   );
 }
