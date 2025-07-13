@@ -1,26 +1,23 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  darkMode: "['attribute', 'data-theme']",
+export default {
+  darkMode: 'class',
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx}',
-    './src/components/**/*.{js,ts,jsx,tsx}',
-    './src/layouts/**/*.{js,ts,jsx,tsx}',
-    './src/containers/**/*.{js,ts,jsx,tsx}',
-    './src/utils/**/*.{js,ts,jsx,tsx}',
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {
       colors: {
-        background: {
-          light: '#f3f4f6',
-          dark: '#1f2937',
-        },
-        text: {
-          light: '#1f2937',
-          dark: '#f9fafb',
-        },
+        /* cor de fundo global */
+        background: 'var(--color-bg)',
+        /* textos */
+        textsecondary: 'var(--color-text-secondary)',
+        textprimary: 'var(--color-text-primary)',
+        /* botões, links, destaques */
+        primary: 'var(--color-primary)',
+        secondary: 'var(--color-secondary)',
       },
-    },
+    }
   },
   plugins: [],
-};
+}

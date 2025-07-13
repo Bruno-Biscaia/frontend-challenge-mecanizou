@@ -17,14 +17,14 @@ export function ProductCard({ product }: Props) {
           src={product.image}
           width={500}
           height={500}
-          className="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8"
+          className="aspect-square w-full rounded-lg  object-cover group-hover:opacity-75 xl:aspect-7/8"
         />
 
-        <Typography as="h3" className="mt-4 text-sm text-gray-700">
+        <Typography as="h3" className="mt-4 text-sm ">
           {product.name}
         </Typography>
 
-        <Typography as="p" className="mt-1 text-lg font-medium text-gray-900">
+        <Typography as="p" className="mt-1 text-lg font-medium ">
           R$ {product.price.toFixed(2)}
         </Typography>
       </div>

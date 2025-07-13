@@ -18,7 +18,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen flex-1 flex-col justify-center items-center px-6 py-12 lg:px-8">
+    <div className="flex h-full flex-col items-center py-20">
       <div className="w-full sm:mx-auto sm:w-full sm:max-w-sm">
         <div className="relative mx-auto h-26 w-auto">
           <Image
@@ -33,7 +33,7 @@ export default function LoginPage() {
         <Typography
           as="h2"
           variant="h2"
-          className="mt-8 text-center text-2xl/9 font-bold tracking-tight text-gray-900"
+          className="mt-8 text-center text-2xl/9 font-bold tracking-tight "
         >
           Login
         </Typography>

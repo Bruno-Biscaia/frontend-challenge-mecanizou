@@ -1,23 +1,25 @@
-// src/components/ThemeToggle.tsx
-import { useTheme } from '@/hooks/useTheme';
-import { MoonIcon, SunIcon } from '@heroicons/react/24/outline';
-
+// components/ThemeToggle.tsx
+'use client'
+import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react'
 
 export function ThemeToggle() {
-  const { isDark, toggleTheme } = useTheme();
+  const { theme, setTheme, systemTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  // Evita mismatches de SSR
+  useEffect(() => setMounted(true), [])
+
+  if (!mounted) return null
+
+  const current = theme === 'system' ? systemTheme : theme
 
   return (
     <button
-      onClick={toggleTheme}
-      className="p-2 rounded-md border border-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
-      aria-label="Alternar tema"
-      title="Alternar tema"
+      onClick={() => setTheme(current === 'dark' ? 'light' : 'dark')}
+      className="p-2 rounded  text-white dark:text-text-primary border border-gray-500"
     >
-      {isDark ? (
-        <SunIcon className="h-6 w-6 text-yellow-400" />
-      ) : (
-        <MoonIcon className="h-6 w-6 text-gray-700" />
-      )}
+      {current === 'dark' ? '☀️' : '🌙'}
     </button>
-  );
+  )
 }

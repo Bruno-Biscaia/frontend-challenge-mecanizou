@@ -1,6 +1,19 @@
+/* styles/globals.css */
 @import "tailwindcss";
-
 
 html {
   transition: background-color 0.3s, color 0.3s;
+}
+
+@layer base {
+
+  /* modo claro */
+  html {
+    @apply bg-gray-100 text-gray-800;
+  }
+
+  /* modo escuro */
+  html.dark {
+    @apply bg-slate-800 text-white;
+  }
 }
