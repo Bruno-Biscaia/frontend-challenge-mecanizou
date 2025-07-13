@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { isAuthenticated } from '@/hooks/useAuth';
 import { ProductCard } from '@/components/Molecules/ProductCard';
 import { Pagination } from '@/components/Molecules/Pagination';
+import { Typography } from '@/components/Atoms/Typography';
 
 export default function ProductsPage() {
   const [page, setPage] = useState(1);
@@ -27,20 +28,21 @@ export default function ProductsPage() {
   if (!allowed) return null;
 
   return (
-    <div className="bg-white">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {current.map(product => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-
-        <Pagination
-          page={page}
-          totalPages={totalPages}
-          onPageChange={setPage}
-        />
+    <div className="mx-auto max-w-2xl p-3 pb-8 sm:px-6 lg:max-w-7xl lg:px-8">
+      <Typography className="mb-8 text-[20px] font-semibold ">
+        Catálogo de Produtos
+      </Typography>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {current.map(product => (
+          <ProductCard key={product.id} product={product} />
+        ))}
       </div>
+
+      <Pagination
+        page={page}
+        totalPages={totalPages}
+        onPageChange={setPage}
+      />
     </div>
   );
 }

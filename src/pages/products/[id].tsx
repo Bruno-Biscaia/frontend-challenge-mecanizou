@@ -14,53 +14,51 @@ interface Props {
 
 export default function ProductDetailPage({ product }: Props) {
   return (
-    <div className="bg-white">
-      <div className="mx-auto min-h-screen max-w-2xl px-6 py-20 md:px-8 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
-        {/* Voltar */}
-        <div className="lg:col-span-2">
-          <Link href="/products" className="inline-flex items-center text-indigo-600 hover:text-indigo-500 font-medium">
-            <ArrowLeftCircleIcon className="h-10 w-10" aria-hidden="true" />
-          </Link>
-        </div>
+    <div className="mx-auto max-w-2xl px-3 pb-12  md:px-8  lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+      {/* Voltar */}
+      <div className="lg:col-span-2">
+        <Link href="/products" className="inline-flex items-center text-indigo-600 hover:text-indigo-500 font-medium">
+          <ArrowLeftCircleIcon className="h-10 w-10" aria-hidden="true" />
+        </Link>
+      </div>
 
-        {/* Texto */}
-        <div className="lg:max-w-lg lg:self-end">
-          <Typography as="h1" className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            {product.name}
+      {/* Texto */}
+      <div className="lg:max-w-lg lg:self-end">
+        <Typography as="h1" className="text-3xl font-bold tracking-tight  sm:text-4xl">
+          {product.name}
+        </Typography>
+
+        <div className="mt-4 flex items-center">
+          <Typography as="p" className="text-2xl font-semibold ">
+            R$ {product.price.toFixed(2)}
           </Typography>
-
-          <div className="mt-4 flex items-center">
-            <Typography as="p" className="text-2xl font-semibold text-gray-900">
-              R$ {product.price.toFixed(2)}
-            </Typography>
-            <RatingStars rating={product.reviews} totalReviews={product.numberOfReviews} />
-          </div>
-
-          <div className="mt-6 space-y-6">
-            <Typography as="p" className="text-base text-gray-500 text-justify">
-              {product.description}
-            </Typography>
-          </div>
-
-          <div className="mt-6 flex items-center space-x-2">
-            <CheckIcon className="h-5 w-5 text-green-500" aria-hidden="true" />
-            <Typography as="p" className="text-sm text-gray-500">
-              Em estoque e pronto para envio
-            </Typography>
-          </div>
+          <RatingStars rating={product.reviews} totalReviews={product.numberOfReviews} />
         </div>
 
-        {/* Imagem */}
-        <div className="mt-10 lg:col-start-2 lg:row-span-2 lg:mt-0 lg:self-center">
-          <Image
-            alt={product.subTitle}
-            src={product.image}
-            width={700}
-            height={700}
-            className="aspect-square w-full rounded-lg object-cover"
-            priority
-          />
+        <div className="mt-6 space-y-6">
+          <Typography as="p" className="text-base  text-justify">
+            {product.description}
+          </Typography>
         </div>
+
+        <div className="mt-6 flex items-center space-x-2">
+          <CheckIcon className="h-5 w-5 text-green-500" aria-hidden="true" />
+          <Typography as="p" className="text-sm ">
+            Em estoque e pronto para envio
+          </Typography>
+        </div>
+      </div>
+
+      {/* Imagem */}
+      <div className="mt-10 lg:col-start-2 lg:row-span-2 lg:mt-0 lg:self-center">
+        <Image
+          alt={product.subTitle}
+          src={product.image}
+          width={700}
+          height={700}
+          className="aspect-square w-full rounded-lg object-cover"
+          priority
+        />
       </div>
     </div>
   );
