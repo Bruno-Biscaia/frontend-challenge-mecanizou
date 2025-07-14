@@ -1,19 +1,18 @@
-// src/components/ImageGallery.tsx
-import { ImageCard } from './ImageCard'
+import { ImageCard } from './ImageCard';
 
 const column1 = [
   'https://images.unsplash.com/photo-1617152623457-4c9b639926d7?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=...',
-]
+];
 
 const column2 = [
   'https://plus.unsplash.com/premium_photo-1680223046535-13267c53dd87?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=...',
   'https://images.unsplash.com/photo-1701687772319-23cb6f2b954e?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=...',
-]
+];
 
 const column3 = [
   'https://images.unsplash.com/photo-1611254666354-d75bfe3cadbc?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=...',
   'https://images.unsplash.com/photo-1611428343775-f6bbbdb1c3b5?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=...',
-]
+];
 
 function ImageWithRing({ src }: { src: string }) {
   return (
@@ -21,7 +20,7 @@ function ImageWithRing({ src }: { src: string }) {
       <ImageCard src={src} />
       <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-gray-900/10 ring-inset" />
     </div>
-  )
+  );
 }
 
 export function ImageGallery() {
@@ -45,5 +44,5 @@ export function ImageGallery() {
         ))}
       </div>
     </div>
-  )
+  );
 }

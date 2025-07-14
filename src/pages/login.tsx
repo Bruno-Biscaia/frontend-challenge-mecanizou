@@ -1,12 +1,11 @@
 'use client';
 
-import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { login } from '@/hooks/useAuth';
-import { Button } from '@/components/Atoms/Button';
+import { Button } from '@/components/Atoms/Button/Button';
 import Image from 'next/image';
 import { Typography } from '@/components/Atoms/Typography';
-import { InputField } from '@/components/Atoms/InputField';
+import { InputField } from '@/components/Molecules/InputField';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -14,7 +13,7 @@ export default function LoginPage() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     login();
-    router.push('/products');
+    router.push('/produtos');
   }
 
   return (
@@ -41,14 +40,31 @@ export default function LoginPage() {
 
       <div className="mt-10 w-4/5 sm:mx-auto sm:w-full sm:max-w-sm">
         <form action="#" method="POST" className="space-y-6">
-          <InputField id="username" name="username" type="text" required label="Nome do usuário" />
-          <InputField id="password" name="password" type="password" required label="Senha" />
-          <Button onClick={handleSubmit} type="submit" variant="primary" size="lg" className='w-full'>
+          <InputField
+            id="username"
+            name="username"
+            type="text"
+            required
+            label="Nome do usuário"
+          />
+          <InputField
+            id="password"
+            name="password"
+            type="password"
+            required
+            label="Senha"
+          />
+          <Button
+            onClick={handleSubmit}
+            type="submit"
+            variant="primary"
+            size="lg"
+            className="w-full"
+          >
             Entrar
           </Button>
         </form>
       </div>
     </div>
-
   );
 }

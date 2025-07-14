@@ -1,6 +1,6 @@
-'use client'
+'use client';
 
-import { ReactElement, ReactNode } from 'react'
+import { ReactElement, ReactNode } from 'react';
 
 export default function NotFoundPage() {
   return (
@@ -25,10 +25,10 @@ export default function NotFoundPage() {
         </div>
       </div>
     </main>
-  )
+  );
 }
 
-// Esta função diz ao _app que **não** use o layout padrão aqui
+// Esta função diz ao _app para nao usa MainLayout nessa página
 NotFoundPage.getLayout = function getLayout(page: ReactElement): ReactNode {
-  return page
-}
+  return page;
+};

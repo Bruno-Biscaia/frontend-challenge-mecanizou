@@ -1,12 +1,13 @@
 /* styles/globals.css */
-@import "tailwindcss";
+@import 'tailwindcss';
 
 html {
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
 @layer base {
-
   /* modo claro */
   html {
     @apply bg-gray-100 text-gray-800;

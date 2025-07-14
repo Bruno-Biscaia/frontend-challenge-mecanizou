@@ -1,4 +1,3 @@
-// src/components/Pagination.tsx
 interface Props {
   page: number;
   totalPages: number;
@@ -33,9 +32,11 @@ export function Pagination({ page, totalPages, onPageChange }: Props) {
             onClick={() => onPageChange(pageNum)}
             aria-current={isCurrent ? 'page' : undefined}
             className={`px-3 py-1 rounded-md text-sm font-medium cursor-pointer
-              ${isCurrent
-                ? 'border-t-2 border-indigo-500 text-indigo-600'
-                : 'border border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'}`}
+              ${
+                isCurrent
+                  ? 'border-t-2 border-indigo-500 text-indigo-600'
+                  : 'border border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+              }`}
           >
             {pageNum}
           </button>

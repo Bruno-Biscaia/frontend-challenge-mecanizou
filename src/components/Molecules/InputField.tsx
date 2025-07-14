@@ -1,4 +1,4 @@
-import { Typography } from './Typography';
+import { Typography } from '../Atoms/Typography';
 
 interface InputFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;

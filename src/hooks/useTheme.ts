@@ -1,30 +1,21 @@
-// 2. src/hooks/useTheme.ts
 import { useEffect, useState } from 'react';
 
 export function useTheme() {
-  const [isDark, setIsDark] = useState(false);
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      document.documentElement.classList.add('dark');
-      setIsDark(true);
-    } else {
-      document.documentElement.classList.remove('dark');
-      setIsDark(false);
-    }
+    const stored = localStorage.getItem('theme');
+    const initial = stored === 'dark' ? 'dark' : 'light';
+    setTheme(initial);
+    document.documentElement.classList.toggle('dark', initial === 'dark');
   }, []);
 
   const toggleTheme = () => {
-    setIsDark((prev) => {
-      const newTheme = !prev;
-      localStorage.setItem('theme', newTheme ? 'dark' : 'light');
-      document.documentElement.classList.toggle('dark', newTheme);
-      return newTheme;
-    });
+    const next = theme === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', next);
+    document.documentElement.classList.toggle('dark', next === 'dark');
+    setTheme(next);
   };
 
-  return { isDark, toggleTheme };
+  return { theme, toggleTheme };
 }
