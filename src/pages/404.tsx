@@ -20,7 +20,7 @@ export default function NotFoundPage() {
         </p>
         <div className="mt-10 flex justify-center">
           <a href="/" className="text-sm/7 font-semibold text-white">
-            <span aria-hidden="true">&larr;</span> Back to home
+            <span aria-hidden="true">&larr;</span> Voltar para Home
           </a>
         </div>
       </div>
