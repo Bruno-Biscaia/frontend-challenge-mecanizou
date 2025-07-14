@@ -1,8 +1,8 @@
 // eslint.config.cjs
-const js = require('@eslint/js')
-const parser = require('@typescript-eslint/parser')
-const tsPlugin = require('@typescript-eslint/eslint-plugin')
-const prettierPlugin = require('eslint-plugin-prettier')
+const js = require('@eslint/js');
+const parser = require('@typescript-eslint/parser');
+const tsPlugin = require('@typescript-eslint/eslint-plugin');
+const prettierPlugin = require('eslint-plugin-prettier');
 
 module.exports = [
   {
@@ -42,4 +42,4 @@ module.exports = [
       react: { version: 'detect' },
     },
   },
-]
+];
