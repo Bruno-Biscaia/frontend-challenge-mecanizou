@@ -8,7 +8,7 @@ module.exports = [
   {
     // só aplica o lint nessa lista de patterns
     files: ['src/**/*.{js,jsx,ts,tsx}'],
-    // ainda assim ignora node_modules, .next etc
+    // node_modules, .next etc
     ignores: ['node_modules/**', '.next/**'],
     languageOptions: {
       parser,

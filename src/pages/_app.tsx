@@ -1,4 +1,3 @@
-// src/pages/_app.tsx
 'use client';
 
 import '../styles/globals.css';
