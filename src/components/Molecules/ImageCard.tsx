@@ -1,8 +1,8 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
 interface ImageCardProps {
-  src: string
-  alt?: string
+  src: string;
+  alt?: string;
 }
 
 export function ImageCard({ src, alt = '' }: ImageCardProps) {
@@ -15,5 +15,5 @@ export function ImageCard({ src, alt = '' }: ImageCardProps) {
       className="w-full rounded-xl bg-gray-900/5 object-cover shadow-lg aspect-[2/3]"
       priority
     />
-  )
+  );
 }

@@ -6,9 +6,8 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import MainLayout from '@/components/layout/MainLayout';
 import { ReactElement, ReactNode } from 'react';
-import { ThemeProvider } from 'next-themes';
 
-// Estende o tipo de Component para poder exportar getLayout nas páginas
+// Exporta GetLayout nas páginas (utilizado para definir o layout da 404)
 type NextPageWithLayout = AppProps['Component'] & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
@@ -20,11 +19,10 @@ type AppPropsWithLayout = Omit<AppProps, 'Component'> & {
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   // Se a página exportou getLayout, usa ele; caso contrário, usa o MainLayout
   const getLayout =
-    Component.getLayout ??
-    ((page) => <MainLayout>{page}</MainLayout>);
+    Component.getLayout ?? ((page) => <MainLayout>{page}</MainLayout>);
 
   return (
-    <ThemeProvider attribute="class">
+    <>
       <Head>
         <title>Zone Fashion</title>
         <meta
@@ -35,6 +33,6 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
       </Head>
 
       {getLayout(<Component {...pageProps} />)}
-    </ThemeProvider>
+    </>
   );
 }

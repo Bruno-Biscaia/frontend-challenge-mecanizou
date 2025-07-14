@@ -9,25 +9,22 @@ import Image from 'next/image';
 import { DesktopNav } from './DesktopNav';
 import { MobileNav } from './MobileNav';
 
-
 interface NavContainerProps {
   children: ReactNode;
 }
 
 const navigation = [
   { name: 'Home', href: '/' },
-  { name: 'Catálogo', href: '/products' },
+  { name: 'Catálogo', href: '/produtos' },
 ];
 
 export default function NavContainer({ children }: NavContainerProps) {
   const router = useRouter();
   const pathname = usePathname();
-  const [mounted, setMounted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [logged, setLogged] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     setLogged(isAuthenticated());
   }, []);
 
@@ -36,15 +33,6 @@ export default function NavContainer({ children }: NavContainerProps) {
     setLogged(isAuthenticated());
     setMobileMenuOpen(false);
   }, [pathname]);
-
-  // Redireciona do /login se já estiver logado
-  useEffect(() => {
-    if (mounted && logged && pathname === '/login') {
-      router.replace('/products');
-    }
-  }, [mounted, logged, pathname, router]);
-
-  if (!mounted) return null;
 
   function handleLogout() {
     logout();
@@ -81,7 +69,7 @@ export default function NavContainer({ children }: NavContainerProps) {
               className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 "
             >
               <span className="sr-only">Open main menu</span>
-              <Bars3Icon aria-hidden="true" className="h-6 w-6" />
+              <Bars3Icon aria-hidden="true" className="h-6 w-6 text-gray-900" />
             </button>
           </div>
 
@@ -103,10 +91,7 @@ export default function NavContainer({ children }: NavContainerProps) {
         />
       </header>
 
-      {/* Conteúdo da página, com padding-top para descer abaixo do header */}
-      <main className="pt-20">
-        {children}
-      </main>
+      <main className="pt-20">{children}</main>
     </>
   );
 }

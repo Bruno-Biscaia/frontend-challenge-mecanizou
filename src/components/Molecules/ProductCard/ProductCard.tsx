@@ -1,4 +1,3 @@
-// src/components/ProductCard.tsx
 import Image from 'next/image';
 import Link from 'next/link';
 import { Product } from '@/models/product';
@@ -10,7 +9,11 @@ interface Props {
 
 export function ProductCard({ product }: Props) {
   return (
-    <Link href={`/products/${product.id}`} className="group">
+    <Link
+      data-testid="product-card"
+      href={`/produtos/${product.id}`}
+      className="group"
+    >
       <div>
         <Image
           alt={product.subTitle}

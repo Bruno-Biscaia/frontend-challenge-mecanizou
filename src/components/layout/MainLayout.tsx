@@ -9,10 +9,7 @@ interface MainLayoutProps {
 export default function MainLayout({ children }: MainLayoutProps) {
   return (
     <NavContainer>
-      {/* pt-16 (ou pt-20) para dar espaço ao header fixo */}
-      <div className="p-6 h-screen">
-        {children}
-      </div>
+      <div className="p-6 h-screen">{children}</div>
     </NavContainer>
   );
 }

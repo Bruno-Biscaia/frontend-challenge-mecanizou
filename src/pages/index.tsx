@@ -1,4 +1,4 @@
-import { Button } from '@/components/Atoms/Button';
+import { Button } from '@/components/Atoms/Button/Button';
 import Link from 'next/link';
 import { ImageGallery } from '@/components/Molecules/ImageGallery';
 import { Typography } from '@/components/Atoms/Typography';
@@ -16,11 +16,13 @@ export default function HomePage() {
             variant="p"
             className="mt-8 text-lg font-medium text-pretty  sm:max-w-md sm:text-xl/8 lg:max-w-none"
           >
-            Descubra roupas, calçados e acessórios que refletem sua personalidade com autenticidade e conforto. Do casual ao urbano, temos o look ideal pra você se destacar
+            Descubra roupas, calçados e acessórios que refletem sua
+            personalidade com autenticidade e conforto. Do casual ao urbano,
+            temos o look ideal pra você se destacar
           </Typography>
 
-          <Link href="/products" className="mt-10 flex items-center gap-x-6">
-            <Button variant="primary" size="md" className=''>
+          <Link href="/produtos" className="mt-10 flex items-center gap-x-6">
+            <Button variant="primary" size="md" className="">
               Ver Catálogo
             </Button>
           </Link>
@@ -29,7 +31,5 @@ export default function HomePage() {
         <ImageGallery />
       </div>
     </div>
-
-
   );
 }

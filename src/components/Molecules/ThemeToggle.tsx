@@ -1,25 +1,13 @@
-// components/ThemeToggle.tsx
-'use client'
-import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
+import { useTheme } from '@/hooks/useTheme';
 
 export function ThemeToggle() {
-  const { theme, setTheme, systemTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-
-  // Evita mismatches de SSR
-  useEffect(() => setMounted(true), [])
-
-  if (!mounted) return null
-
-  const current = theme === 'system' ? systemTheme : theme
-
+  const { theme, toggleTheme } = useTheme();
   return (
     <button
-      onClick={() => setTheme(current === 'dark' ? 'light' : 'dark')}
-      className="p-2 rounded  text-white dark:text-text-primary border border-gray-500"
+      onClick={toggleTheme}
+      className="p-2 border border-gray-300 text-gray-900 rounded-md hover:bg-gray-100 transition-colors cursor-pointer"
     >
-      {current === 'dark' ? '☀️' : '🌙'}
+      {theme === 'dark' ? '🌙 Light' : '☀️ Dark'}
     </button>
-  )
+  );
 }
